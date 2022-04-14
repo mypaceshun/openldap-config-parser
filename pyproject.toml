@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "openldap-config-parser"
+version = "0.9.0"
+description = "slapd.conf parser for OpenLDAP"
+authors = ["KAWAI Shun <shun@osstech.co.jp>"]
+license = "MIT"
+readme = "README.rst"
+packages = [
+  { include = "openldap_config_parser", from = "src" }
+]
+include = [
+  "src/openldap_config_parser/py.typed",
+  "CHANGELOG.rst"
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "^8.1.2"
+rich = "^12.2.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+pyproject-flake8 = "^0.0.1-alpha.4"
+isort = "^5.10.1"
+autoflake = "^1.4"
+black = "^22.3.0"
+mypy = "^0.942"
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
+poethepoet = "^0.13.1"
+pre-commit = "^2.18.1"
+Sphinx = "^4.5.0"
+types-setuptools = "^57.4.12"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+
+[tool.poe.tasks.test]
+cmd = "pytest -v --cov=src/ --cov-report=html --cov-report=xml tests/"
+help = "run test"
+
+[tool.poe.tasks.lint]
+sequence = [
+  { cmd = "pflake8 src/ tests/" },
+  { cmd = "mypy src/" }
+]
+help = "check syntax"
+ignore_fail = "return_non_zero"
+
+[tool.poe.tasks.format]
+sequence = [ 
+  { cmd = "autoflake -ir --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports src/ tests/" },
+  { cmd = "isort src/ tests/" },
+  { cmd = "black src/ tests/" },
+  "lint"
+]
+help = "format code style"
+
+[tool.poe.tasks.doc]
+sequence = [
+  { cmd = "sphinx-apidoc -f -e -o pre-docs/ src/openldap_config_parser/"},
+  { cmd = "sphinx-build -b html pre-docs/ docs/" },
+]
+help = "build document"
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+max-omplexity = 10
+
+[tool.mypy]
+
+[[tool.mypy.overrides]]
+module = [
+]
+ignore_missing_imports = true
