@@ -13,8 +13,8 @@ def test_cli_help():
     assert result.exit_code == 0
 
 
-def test_cli_dry_run():
+def test_cli_run():
     success_conf = Path(BASE_DIR, "config", "simple_slapd.conf")
     runner = CliRunner()
-    result = runner.invoke(cli, ["--dry-run", str(success_conf)])
+    result = runner.invoke(cli, [str(success_conf)])
     assert result.exit_code == 0

@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'openldap-config-parser'
-copyright = '2022, KAWAI Shun'
-author = 'KAWAI Shun'
+copyright = '2022, KAWAI Shun <mypaceshun@gmail.com>'
+author = 'KAWAI Shun <mypaceshun@gmail.com>'
 
 # The full version, including alpha/beta/rc tags
 release = '0.9.0'
@@ -31,9 +31,10 @@ release = '0.9.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.githubpages',
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
-    'sphinx.ext.githubpages',
+    'sphinx.ext.napoleon',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

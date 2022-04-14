@@ -14,13 +14,13 @@ install(show_locals=True)
 @click.command()
 @click.version_option(version=__version__, package_name=__name__)
 @click.help_option("-h", "--help")
-@click.option("--dry-run", is_flag=True, help="dry run")
 @click.argument("target", type=click.Path(exists=True))
-def cli(target, dry_run):
+def cli(target):
     """
     \b
     TARGET      parse target file
     """
     console = Console()
     console.log("run script")
-    parse(Path(target))
+    result = parse(Path(target))
+    console.log(result)

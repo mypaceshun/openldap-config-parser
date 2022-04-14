@@ -1,0 +1,2 @@
+class SlapdConfigParserError(Exception):
+    pass
