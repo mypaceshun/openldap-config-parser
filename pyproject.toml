@@ -5,6 +5,8 @@ description = "slapd.conf parser for OpenLDAP"
 authors = ["KAWAI Shun <shun@osstech.co.jp>"]
 license = "MIT"
 readme = "README.rst"
+repository = "https://github.com/mypaceshun/openldap-config-parser"
+documentation = "https://mypaceshun.github.io/openldap-config-parser"
 packages = [
   { include = "openldap_config_parser", from = "src" }
 ]

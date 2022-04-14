@@ -3,12 +3,22 @@ openldap-config-parser
 
 slapd.conf parser for OpenLDAP
 
+Repository
+----------
+
+https://github.com/mypaceshun/openldap-config-parser
+
+Documentation
+-------------
+
+https://mypaceshun.github.io/openldap-config-parser
+
 Install
 -------
 
 ::
 
-  python3 -m pip install git+https://github.com/mypaceshun/openldap-config-parser.git
+  python3 -m pip install openldap-config-parser
 
 Command Usage
 -------------
