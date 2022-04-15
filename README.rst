@@ -9,8 +9,6 @@ openldap-config-parser
    :target: https://github.com/mypaceshun/openldap-config-parser/actions/workflows/main.yml
 .. image:: https://codecov.io/gh/mypaceshun/openldap-config-parser/branch/main/graph/badge.svg?token=YT631KX1TK
    :target: https://codecov.io/gh/mypaceshun/openldap-config-parser
-.. image:: https://pepy.tech/badge/openldap-config-parser
-   :target: https://pypi.org/project/openldap-config-parser/
 
 Repository
 ----------
