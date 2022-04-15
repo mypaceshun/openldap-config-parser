@@ -50,17 +50,56 @@ class SlapdConfig:
         self.global_configに設定を追加する。
 
         Args:
-            directive (str): 追加するディレクティブ
-            args (list[str]): ディレクティブの引数リスト
+            directive (Directive): 追加するディレクティブ
             database_no (int): ディレクティブを追加するDatabaseのインデックス。
         """
-        if database_no < 0 or len(self.databases) <= database_no:
-            config = self.global_config
-        else:
-            config = self.databases[database_no].config
+        config = self.get_database(database_no)
         key = directive["directive"]
         args = directive["args"]
         if key not in config:
             config[key] = [args]
         else:
             config[key].append(args)
+
+    def get_database(self, database_no: int = -1):
+        """
+        データベースの取得
+        database_noがself.databasesの範囲外を指定している場合は、
+        self.global_configに設定を追加する。
+
+        Args:
+            database_no (int): 取得するDatabaseのインデックス (Default: -1)
+
+        Returns:
+            Database: 指定したデータベースの設定データ
+        """
+        if database_no < 0 or len(self.databases) <= database_no:
+            return self.global_config
+        return self.databases[database_no].config
+
+    def get_database_no(self, dbtype: str):
+        for index, db in enumerate(self.databases):
+            if dbtype == db.type:
+                return index
+        return -1
+
+    def get_value(self, key: str, database_no: int = -1):
+        """
+        値の取得
+        database_noがself.databasesの範囲外を指定している場合は、
+        self.global_configから値を取得する。
+        Databaseにキーが存在しなかった場合はself.global_configから値を取得する。
+        self.global_configにもキーが存在しなかった場合は空リストを返します。
+
+        Args:
+            key (str): ディレクティブのキー
+            database_no (int): 取得するDatabaseのインデックス (Default: -1)
+
+        Returns:
+            Config: 設定の値リスト
+        """
+        config = self.get_database(database_no)
+        result = config.get(key, None)
+        if result is None:
+            return self.global_config.get(key, [])
+        return result

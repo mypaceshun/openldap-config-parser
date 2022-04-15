@@ -85,10 +85,57 @@ self.global_configに設定を追加する。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>directive</strong> (<em>str</em>) -- 追加するディレクティブ</p></li>
-<li><p><strong>args</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) -- ディレクティブの引数リスト</p></li>
+<li><p><strong>directive</strong> (<a class="reference internal" href="#openldap_config_parser.config.Directive" title="openldap_config_parser.config.Directive"><em>Directive</em></a>) -- 追加するディレクティブ</p></li>
 <li><p><strong>database_no</strong> (<em>int</em>) -- ディレクティブを追加するDatabaseのインデックス。</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openldap_config_parser.config.SlapdConfig.get_database">
+<span class="sig-name descname"><span class="pre">get_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_no</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openldap_config_parser.config.SlapdConfig.get_database" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>データベースの取得
+database_noがself.databasesの範囲外を指定している場合は、
+self.global_configに設定を追加する。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><p><strong>database_no</strong> (<em>int</em>) -- 取得するDatabaseのインデックス (Default: -1)</p>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p>指定したデータベースの設定データ</p>
+</dd>
+<dt class="field-odd">戻り値の型</dt>
+<dd class="field-odd"><p><a class="reference internal" href="openldap_config_parser.database.html#openldap_config_parser.database.Database" title="openldap_config_parser.database.Database">Database</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openldap_config_parser.config.SlapdConfig.get_database_no">
+<span class="sig-name descname"><span class="pre">get_database_no</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dbtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openldap_config_parser.config.SlapdConfig.get_database_no" title="この定義へのパーマリンク">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="openldap_config_parser.config.SlapdConfig.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_no</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#openldap_config_parser.config.SlapdConfig.get_value" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>値の取得
+database_noがself.databasesの範囲外を指定している場合は、
+self.global_configから値を取得する。
+Databaseにキーが存在しなかった場合はself.global_configから値を取得する。
+self.global_configにもキーが存在しなかった場合は空リストを返します。</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>str</em>) -- ディレクティブのキー</p></li>
+<li><p><strong>database_no</strong> (<em>int</em>) -- 取得するDatabaseのインデックス (Default: -1)</p></li>
+</ul>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p>設定の値リスト</p>
+</dd>
+<dt class="field-odd">戻り値の型</dt>
+<dd class="field-odd"><p>Config</p>
 </dd>
 </dl>
 </dd></dl>
