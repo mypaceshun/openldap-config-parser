@@ -24,7 +24,7 @@ https://github.com/mypaceshun/openldap-config-parser
 Documentation
 -------------
 
-https://mypaceshun.github.io/openldap-config-parser
+https://openldap-config-parser.readthedocs.io/
 
 Install
 -------

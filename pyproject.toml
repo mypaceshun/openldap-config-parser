@@ -6,7 +6,7 @@ authors = ["KAWAI Shun <shun@osstech.co.jp>"]
 license = "MIT"
 readme = "README.rst"
 repository = "https://github.com/mypaceshun/openldap-config-parser"
-documentation = "https://mypaceshun.github.io/openldap-config-parser"
+documentation = "https://openldap-config-parser.readthedocs.io"
 packages = [
   { include = "openldap_config_parser", from = "src" }
 ]
@@ -67,8 +67,7 @@ help = "format code style"
 
 [tool.poe.tasks.doc]
 sequence = [
-  { cmd = "sphinx-apidoc -f -e -o pre-docs/ src/openldap_config_parser/"},
-  { cmd = "sphinx-build -b html pre-docs/ docs/" },
+  { cmd = "sphinx-apidoc -f -e -o docs/ src/openldap_config_parser/"},
 ]
 help = "build document"
 
