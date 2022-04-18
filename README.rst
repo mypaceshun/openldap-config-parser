@@ -2,6 +2,7 @@ openldap-config-parser
 ======================
 
 .. image:: https://img.shields.io/pypi/pyversions/openldap-config-parser
+   :target: https://pypi.org/project/openldap-config-parser/
    :alt: PyPI - Python Version
 .. image:: https://badge.fury.io/py/openldap-config-parser.svg
    :target: https://pypi.org/project/openldap-config-parser/
@@ -11,6 +12,9 @@ openldap-config-parser
    :target: https://github.com/mypaceshun/openldap-config-parser/actions/workflows/main.yml
 .. image:: https://codecov.io/gh/mypaceshun/openldap-config-parser/branch/main/graph/badge.svg?token=YT631KX1TK
    :target: https://codecov.io/gh/mypaceshun/openldap-config-parser
+.. image:: https://readthedocs.org/projects/openldap-config-parser/badge/?version=latest
+   :target: https://openldap-config-parser.readthedocs.io/ja/latest/?badge=latest
+   :alt: Documentation Status
 
 Repository
 ----------
