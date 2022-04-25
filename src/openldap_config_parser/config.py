@@ -1,11 +1,11 @@
-from typing import TypedDict
+from typing import Dict, List, TypedDict
 
 from openldap_config_parser.database import Config, Database
 
 
 class Directive(TypedDict):
     directive: str
-    args: list[str]
+    args: List[str]
 
 
 class SlapdConfig:
@@ -13,19 +13,19 @@ class SlapdConfig:
 
     slapd.conf の設定を保持するためのクラス
 
-    :param dict[str, Config] global_config: globalの設定辞書
-    :param list[Database] databases: データベースの設定クラスのリスト
+    :param Dict[str, Config] global_config: globalの設定辞書
+    :param List[Database] databases: データベースの設定クラスのリスト
     """
 
     def __init__(
-        self, global_config: dict[str, Config] = None, databases: list[Database] = None
+        self, global_config: Dict[str, Config] = None, databases: List[Database] = None
     ):
         if global_config is None:
             global_config = {}
-        self.global_config: dict[str, Config] = global_config
+        self.global_config: Dict[str, Config] = global_config
         if databases is None:
             databases = []
-        self.databases: list[Database] = databases
+        self.databases: List[Database] = databases
 
     def __repr__(self):
         args = [

@@ -1,4 +1,6 @@
-Config = list[list[str]]
+from typing import Dict, List
+
+Config = List[List[str]]
 
 
 class Database:
@@ -9,11 +11,11 @@ class Database:
     :param dict config: Databaseの設定辞書
     """
 
-    def __init__(self, type: str, config: dict[str, Config] = None):
+    def __init__(self, type: str, config: Dict[str, Config] = None):
         self.type = type
         if config is None:
             config = {}
-        self.config: dict[str, Config] = config
+        self.config: Dict[str, Config] = config
 
     def __repr__(self):
         args = [

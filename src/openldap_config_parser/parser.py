@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import List
 
 from openldap_config_parser.config import Directive, SlapdConfig
 from openldap_config_parser.exceptions import SlapdConfigParserError
@@ -28,18 +29,18 @@ def parse(target: Path):
     return config
 
 
-def parse_directive(lines: list[str]):
+def parse_directive(lines: List[str]):
     """
     各行の文字列のリストをディレクティブと引数の関係に分ける。
     空白やタブから始まる行は前の行の引数となる。
 
     Args:
-        lines (list[str]): 各行の文字列のリスト
+        lines (List[str]): 各行の文字列のリスト
 
     Returns:
-        list[Directive]: ディレクティブのリスト
+        List[Directive]: ディレクティブのリスト
     """
-    directive_list: list[Directive] = []
+    directive_list: List[Directive] = []
     for line in lines:
         _line = line.strip()
         args = _line.split(" ")
@@ -56,7 +57,7 @@ def parse_directive(lines: list[str]):
     return directive_list
 
 
-def read_config_file(target: Path) -> list[str]:
+def read_config_file(target: Path) -> List[str]:
     """
     設定ファイルを読み込み、各行を文字列のリストとして返す。
     このとき空白行やコメント行は除外する。
@@ -65,7 +66,7 @@ def read_config_file(target: Path) -> list[str]:
         target (Path): 読み込む設定ファイルのパス
 
     Returns:
-        list[str]: 読み込んだファイルの各行の文字列のリスト
+        List[str]: 読み込んだファイルの各行の文字列のリスト
     """
     lines = []
     with target.open() as fd:
