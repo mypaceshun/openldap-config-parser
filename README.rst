@@ -49,10 +49,10 @@ Command Usage
 
   $ slapd-parser test.slapd.conf
   [16:45:11] run script                                                                                                           command.py:24
-             SlapdConfig(global_conig={'include': [['/opt/osstech/etc/openldap/schema/core.schema'],                              command.py:26
-             ['/opt/osstech/etc/openldap/schema/cosine.schema'], ['/opt/osstech/etc/openldap/schema/nis.schema'],                              
-             ['/opt/osstech/etc/openldap/schema/inetorgperson.schema'], ['/opt/osstech/etc/openldap/schema/misc.schema'],                      
-             ['/opt/osstech/etc/openldap/schema/ppolicy.schema']], 'moduleload': [['ppolicy']], 'password-hash': [['{CRYPT}']],                
+             SlapdConfig(global_conig={'include': [['/etc/openldap/schema/core.schema'],                              command.py:26
+             ['/etc/openldap/schema/cosine.schema'], ['/etc/openldap/schema/nis.schema'],                              
+             ['/etc/openldap/schema/inetorgperson.schema'], ['/etc/openldap/schema/misc.schema'],                      
+             ['/etc/openldap/schema/ppolicy.schema']], 'moduleload': [['ppolicy']], 'password-hash': [['{CRYPT}']],                
              'password-crypt-salt-format': [['"$5$%.16s"']], 'attributeoptions': [['lang-', 'phonetic']], 'sortvals':                          
              [['memberUid', 'member', 'host']], 'access': [['to', 'dn.exact=""', 'attrs=supportedSASLMechanisms', 'by', '*',                   
              'none'], ['to', 'dn.subtree=""', 'by', '*', 'read']]}, databases=[Database(type='bdb', config={'suffix':                          
